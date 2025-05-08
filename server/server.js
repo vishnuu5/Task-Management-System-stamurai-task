@@ -44,6 +44,11 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+// Add this root route
+app.get("/", (req, res) => {
+  res.send("Task Management API is running");
+});
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URI)
